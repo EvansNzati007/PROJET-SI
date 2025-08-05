@@ -1,0 +1,20 @@
+# Node.js
+node_modules/
+.env
+.env.local
+npm-debug.log
+
+# Logs
+logs/
+*.log
+
+# Vite/CRA
+frontend/dist/
+frontend/.vite/
+
+# IDE
+.vscode/
+.DS_Store
+
+# OS
+Thumbs.db
