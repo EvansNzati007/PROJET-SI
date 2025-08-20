@@ -5,19 +5,18 @@ export default function LoginPage() {
   document.title = "Se connecter";
   return (
     <section className="flex flex-col relative px-4 h-screen">
-      <header className="flex justify-between">
-        <div className="flex py-4">
-          <p className="text-[#fe0503] text-3xl">ESGIS</p>
-          <img src={logo} alt="Logo certificat" className="w-[40px]" />
-        </div>
-        <div className="flex items-center gap-3">
-          <p className="text-[#fe0503] font-bold">Avez-vous un compte ?</p>
-          <button className="bg-[#fe0503] btn btn-md text-white text-lg hover:bg-white hover:text-[#fe0503] border-[#fe0503]">
-            S'inscrire
-          </button>
-        </div>
-      </header>
-
+		<header className="flex justify-between">
+			<div className="flex py-4">
+				<p className="text-[#fe0503] text-3xl">ESGIS</p>
+				<img src={logo} alt="Logo certificat" className="w-[40px]" />
+			</div>
+			<div className="flex items-center gap-3">
+				<p className="text-[#fe0503] font-bold">Avez-vous un compte ?</p>
+				<button className="bg-[#fe0503] btn btn-md text-white text-lg hover:bg-white hover:text-[#fe0503] border-[#fe0503]">
+					S'inscrire
+				</button>
+			</div>
+		</header>
       <div className="flex justify-between h-[88%] ">
         <div className="w-1/2 bg-black text-red-200">
 			<img 
