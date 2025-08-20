@@ -19,5 +19,8 @@
   "homepage": "https://github.com/EvansNzati007/PROJET-SI#readme",
   "devDependencies": {
     "concurrently": "^9.2.0"
+  },
+  "dependencies": {
+    "daisyui": "^5.0.50"
   }
 }
