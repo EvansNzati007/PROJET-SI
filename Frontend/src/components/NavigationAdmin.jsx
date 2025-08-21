@@ -1,30 +1,47 @@
-import logo from '../assets/logo/Certificate.png'
+import { NavLink } from 'react-router-dom';
+import { useContext } from 'react';
+import AuthContext from '../contexts/AuthContext';
+
 export default function NavigationAdmin() {
+  const { user } = useContext(AuthContext);
+
   return (
-      <section className='w-72 bg-base-100 shadow-sm rounded-md'>
-          <div className='flex flex-col items-center py-4'>
-              <img 
-                  src={logo} 
-                  alt="Logo certificat" 
-                  className='w-40 bg-[#ffebeb] my-2.5 rounded-md'
-              />
-              <p className='text-center font-semibold'>Ecole Supérieur de Gestion d'Informatique et des Sciences</p>
-          </div>
-          <div className='border-1 border-gray-300'></div>
-          <nav className='flex justify-center pt-2.5'>
-              <ul className="menu gap-2 w-full [&_li>*]:rounded-none px-2.5">
-                  <li className='bg-[#fe0503] text-white font-semibold text-lg rounded-md border-1 hover:text-[#fe0503] hover:bg-white 
-                      hover:border-[#fe0503] hover:rounded-md hover:border-1'><a className='hover:bg-white hover:rounded-md'>Tableau de bord</a></li>
-                  <li className='bg-[#fe0503] text-white font-semibold text-lg rounded-md border-1 hover:text-[#fe0503] hover:bg-white 
-                      hover:border-[#fe0503] hover:rounded-md hover:border-1'><a className='hover:bg-white hover:rounded-md'>Profil</a></li>
-                  <li className='bg-[#fe0503] text-white font-semibold text-lg rounded-md border-1 hover:text-[#fe0503] hover:bg-white 
-                      hover:border-[#fe0503] hover:rounded-md hover:border-1'><a className='hover:bg-white hover:rounded-md'>Etudiant</a></li>
-                  <li className='bg-[#fe0503] text-white font-semibold text-lg rounded-md border-1 hover:text-[#fe0503] hover:bg-white 
-                      hover:border-[#fe0503] hover:rounded-md hover:border-1'><a className='hover:bg-white hover:rounded-md'>Absences</a></li>
-                  <li className='bg-[#fe0503] text-white font-semibold text-lg rounded-md border-1 hover:text-[#fe0503] hover:bg-white 
-                      hover:border-[#fe0503] hover:rounded-md hover:border-1'><a className='hover:bg-white hover:rounded-md'>Messages</a></li>
-              </ul>
-          </nav>
-      </section>
-    )
+    <div className="w-64 bg-[#fe0503] text-white min-h-screen p-4">
+      <h2 className="text-2xl font-bold mb-6">Menu</h2>
+      <ul className="menu">
+        <li>
+          <NavLink to={user.role === 'SECRETAIRE' ? '/sec' : '/chef'} className="text-white hover:bg-white hover:text-[#fe0503]">
+            Tableau de bord
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to={user.role === 'SECRETAIRE' ? '/sec/absences' : '/chef/absences'} className="text-white hover:bg-white hover:text-[#fe0503]">
+            Absences
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to={user.role === 'SECRETAIRE' ? '/sec/students' : '/chef/students'} className="text-white hover:bg-white hover:text-[#fe0503]">
+            Étudiants
+          </NavLink>
+        </li>
+        {user.role === 'CHEF_DE_DEPARTEMENT' && (
+          <li>
+            <NavLink to="/chef/create-user" className="text-white hover:bg-white hover:text-[#fe0503]">
+              Créer un utilisateur
+            </NavLink>
+          </li>
+        )}
+        <li>
+          <NavLink to={user.role === 'SECRETAIRE' ? '/sec/messages' : '/chef/messages'} className="text-white hover:bg-white hover:text-[#fe0503]">
+            Messages
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to={user.role === 'SECRETAIRE' ? '/sec/profile' : '/chef/profile'} className="text-white hover:bg-white hover:text-[#fe0503]">
+            Profil
+          </NavLink>
+        </li>
+      </ul>
+    </div>
+  );
 }
