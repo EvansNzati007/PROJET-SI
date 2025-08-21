@@ -18,7 +18,7 @@ require('dotenv').config();
   server.use(cors(corsOptions));
 
   // Servir les fichiers statiques du dossier Uploads
-server.use('/Uploads', express.static(path.join(__dirname, 'Uploads')));
+server.use('/api/Uploads', express.static(path.join(__dirname, 'Uploads')));
 
   server.use('/api/users', userRoutes);
   server.use('/api/absences', absenceRoutes);
