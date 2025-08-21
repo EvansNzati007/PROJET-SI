@@ -6,7 +6,8 @@ const allowedOrigins = [
     'http://localhost:8101',
     'http://localhost:8102',
     'http://localhost:5173',
-    'https://mypvit.com'
+    'https://mypvit.com',
+    'https://gestion-absences-frontend.onrender.com/'
 ] 
 
 
